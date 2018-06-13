@@ -1,0 +1,31 @@
+List<String> UniqueWords = new LinkedList<>();
+        try {
+            List<String> in = Files.readAllLines(new File("Mac.txt").toPath());
+            for (String str : in) {
+                String[] splited = str.split("\\W+");// sposob z zajec
+                for (int i = 0; i < splited.length; ++i) {
+                    String lowCaseString = splited[i].toLowerCase();
+                    if (!UniqueWords.contains(lowCaseString)) {
+                        UniqueWords.add(lowCaseString);
+                    }
+                }
+            }
+            int count = 0;
+            for(String str : UniqueWords){
+                if(str.length() == 8){
+                    count++;
+                }
+            }
+            int countt = 0;
+            for(String strr : UniqueWords){
+                if(strr.startsWith("w")){
+                    countt++;
+                }
+            }
+            System.out.println(count);
+            System.out.println(countt);
+
+            System.out.println(UniqueWords.size());
+        } catch (IOException e) {
+            System.out.println("Bledzik");
+        }

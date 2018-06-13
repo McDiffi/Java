@@ -1,0 +1,55 @@
+package jipp.lab12;
+
+/**
+ * Klasa pozwalaj¹ca na reprezentacjê dowolnej figury w grze w szachy.
+ *
+ * @author Micha³ Ciesielczyk
+ */
+public interface Piece {
+
+	/**
+	 * Aktualizuje pozycjê figury odpowiednio do wspó³rzêdnych
+	 * <code>targetRow</code> oraz <code>targetColumn</code>) jeœli ruch jest
+	 * prawid³owy.
+	 *
+	 * @param targetRow docelowy wiersz
+	 * @param targetColumn docelowa kolumna
+	 * @throws game.chess.Piece.OutsideBoardException zg³aszany gdy podane
+	 * wspó³rzêdne s¹ niepoprawne
+	 * @throws game.chess.Piece.InvalidMoveException zg³aszany gdy wskazany ruch
+	 * jest nieprawid³owy
+	 */
+	public void move(int targetRow, int targetColumn) throws OutsideBoardException,
+			  InvalidMoveException;
+
+	/**
+	 * Wyj¹tek zg³aszany gdy podane wspó³rzêdne s¹ niepoprawne.
+	 */
+	public static class InvalidMoveException extends Exception {
+
+		/**
+		 * Konstruktor.
+		 *
+		 * @param message wiadomoœæ wyj¹tku.
+		 */
+		public InvalidMoveException(String message) {
+			super(message);
+		}
+	}
+
+	/**
+	 * Wyj¹tek zg³aszany gdy wskazany ruch jest nieprawid³owy.
+	 */
+	public static class OutsideBoardException extends Exception {
+
+		/**
+		 * Konstruktor.
+		 *
+		 * @param message wiadomoœæ wyj¹tku.
+		 */
+		public OutsideBoardException(String message) {
+			super(message);
+		}
+	}
+
+}

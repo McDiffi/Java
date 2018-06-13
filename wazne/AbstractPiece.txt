@@ -1,0 +1,37 @@
+
+package jipp.lab12;
+
+
+public abstract class AbstractPiece implements Piece {
+
+    protected int row;
+    protected int column;
+	public AbstractPiece(int row_, int column_) throws OutsideBoardException{
+        if(row_ >= 1 && row_ <= 8 && column_ >= 1 && column_ <= 8) {
+            this.row = row_;
+            this.column = column_;
+        } else {
+            throw new OutsideBoardException("Poza szachownica");
+        }
+	}
+
+	public void move(int row_, int column_) throws OutsideBoardException, InvalidMoveException {
+        if(row_ >= 1 && row_ <= 8 && column_ >= 1 && column_ <= 8) {
+            if(row_ == row && column_ == column) {
+                throw new InvalidMoveException("Taki sam ruch!");
+            }
+            if(!this.isValidMove(row_, column_)) {
+                throw new InvalidMoveException("Niepoprawny ruch!");
+            }
+            this.row = row_;
+            this.column = column_;
+        } else {
+            throw new OutsideBoardException("Poza szachownica");
+        }
+	}
+    public abstract boolean isValidMove(int row_, int column_);
+
+
+
+}
+

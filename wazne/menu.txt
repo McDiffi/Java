@@ -1,0 +1,57 @@
+
+import java.util.Scanner;
+
+public class Main {
+    static void zadanie1() {
+      
+    }
+
+
+    static void zadanie2() {
+
+    
+    }
+
+    static void zadanie3() {
+ 
+
+    }
+
+
+
+    public static void main(String[] args) {
+
+        int x = 1;
+        Scanner sc = new Scanner(System.in);
+
+        for (; ; ) {
+            System.out.println("Podaj numer zadania");
+            x = sc.nextInt();
+            switch (x) {
+                case 1: {
+                    zadanie1();
+                    break;
+                }
+                case 2: {
+                    
+                        zadanie2();
+
+                  
+                    break;
+                }
+                case 3: {
+                        zadanie3();
+                    break;
+                }
+
+                case 0: {
+                    System.exit(0);
+                }
+
+
+            }
+
+        }
+    }
+
+}

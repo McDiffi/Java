@@ -1,0 +1,28 @@
+import java.util.concurrent.atomic.AtomicInteger;
+
+public class Counter implements Runnable {
+    private int ileDodac;
+    private int coIle;
+    private AtomicInteger atomic;
+
+    public Counter(int ileDodac, int coIle, AtomicInteger atomic) {
+        this.ileDodac = ileDodac;
+        this.coIle = coIle;
+        this.atomic = atomic;
+    }
+
+    @Override
+    public void run() {
+        while (true) {
+            try {
+                int i = atomic.addAndGet(ileDodac);
+                System.out.println("Liczba " + i);
+                Thread.sleep(coIle);
+            }catch (InterruptedException e){
+                System.out.println("Counter interrupted!");
+                return;
+            }
+        }
+
+    }
+}
